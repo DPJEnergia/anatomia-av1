@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Anatomia AV1">
+<meta name="theme-color" content="#fbeff3">
 <style>html{-webkit-text-size-adjust:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Anatomia AV1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,16 +13,16 @@
 <style>
 /* Layout: app de uma coluna, abas no topo, cartão central grande para estudar no celular */
 :root{
-  --bg:#eef1ef; --surface:#fbfcfb; --ink:#17211f; --muted:#5a6965; --line:#d3dad7;
-  --accent:#1d6b66; --accent-soft:#dcebe8; --good:#2c7a39; --good-soft:#e0f0e2; --bad:#b03e2d; --bad-soft:#f6e3df;
+  --bg:#fbeff3; --surface:#fffafc; --ink:#2e1a24; --muted:#7a5d69; --line:#f0d3de;
+  --accent:#b23c73; --accent-soft:#fadbe7; --good:#2c7a39; --good-soft:#e0f0e2; --bad:#b03e2d; --bad-soft:#f6e3df;
   --display:"Young Serif",Georgia,serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#101715; --surface:#19231f; --ink:#e5ebe9; --muted:#97a6a1; --line:#2b3833;
-  --accent:#5fc2b7; --accent-soft:#1d3532; --good:#74c681; --good-soft:#1c3221; --bad:#ec8572; --bad-soft:#3a221d; color-scheme:dark}}
+  --bg:#1c1218; --surface:#271a21; --ink:#f5e6ec; --muted:#c09fad; --line:#3e2a34;
+  --accent:#f4a6c6; --accent-soft:#4a2737; --good:#74c681; --good-soft:#1c3221; --bad:#ec8572; --bad-soft:#3a221d; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#101715; --surface:#19231f; --ink:#e5ebe9; --muted:#97a6a1; --line:#2b3833;
-  --accent:#5fc2b7; --accent-soft:#1d3532; --good:#74c681; --good-soft:#1c3221; --bad:#ec8572; --bad-soft:#3a221d; color-scheme:dark}
+  --bg:#1c1218; --surface:#271a21; --ink:#f5e6ec; --muted:#c09fad; --line:#3e2a34;
+  --accent:#f4a6c6; --accent-soft:#4a2737; --good:#74c681; --good-soft:#1c3221; --bad:#ec8572; --bad-soft:#3a221d; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
 .wrap{max-width:720px;margin:0 auto;padding:20px 16px 48px;display:flex;flex-direction:column;gap:18px}
@@ -85,9 +86,9 @@ td.f{font-family:var(--mono);font-size:13px;white-space:nowrap}
 .stage{position:relative;min-width:620px;container-type:inline-size}
 .stage img{display:block;width:100%;height:auto;max-width:none}
 .mk{position:absolute;transform:translate(-50%,-50%) rotate(var(--r,0deg));display:flex;align-items:center;justify-content:center;
-  font:700 max(9px,1.25cqw)/1 var(--body);border-radius:4px;cursor:pointer;padding:0;border:1.5px solid #0e4f4b;background:#1d6b66;color:#fff;
+  font:700 max(9px,1.25cqw)/1 var(--body);border-radius:4px;cursor:pointer;padding:0;border:1.5px solid #8c2f5c;background:#b23c73;color:#fff;
   overflow:hidden;white-space:nowrap}
-.mk.fill{background:#fff;color:#0e4f4b;border-color:#1d6b66}
+.mk.fill{background:#fff;color:#8c2f5c;border-color:#b23c73}
 .mk.open{background:#e3f2e5;color:#1f5f2a;border-color:#2c7a39;font-weight:600;font-size:max(8px,1.05cqw)}
 .mk.cover.open{background:transparent;border-color:#2c7a39;border-style:dashed;color:transparent}
 .mk.sel{outline:3px solid #e0a21b;outline-offset:1px}
