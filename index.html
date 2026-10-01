@@ -76,6 +76,9 @@ td.f{font-family:var(--mono);font-size:13px;white-space:nowrap}
 .frac span:first-child{border-bottom:1px solid currentColor;padding:0 2px}
 .small{font-size:13px;color:var(--muted);margin:0}
 .miss{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.cheer{background:var(--accent-soft);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.cheer-h{font-family:var(--display);font-size:22px;color:var(--accent)}
+.cheer p{margin:0;font-size:16px}
 /* figuras */
 .wrap>*,.panel,#tab-figuras>div{min-width:0}
 .stagewrap,.figpick{max-width:100%;min-width:0}
@@ -486,12 +489,19 @@ function sizePicker(){
 function bindSize(el){
   el.querySelectorAll(".qsz").forEach(b=>b.onclick=()=>{qsize=+b.dataset.n;store.set("av1-qsize",qsize);startQuiz()});
 }
+function cheer(pct){
+  const hi=["Você estudou de verdade e isso aparece. Amanhã é só mostrar o que já sabe.","Esse resultado é seu, fruto do seu esforço. Vai com calma e confiança na prova.","Mandou muito bem. Descansa um pouco, que a cabeça também precisa."];
+  const mid=["Cada erro aqui é uma questão a menos para errar amanhã. Revisa as de baixo e faz de novo.","Você já sabe a maior parte. Mais uma rodada nas erradas e vai ficar redondo.","Tá no caminho certo. Respira, revisa os erros e tenta mais uma vez."];
+  const lo=["Errar agora faz parte de aprender. Volta nos cartões desses temas e depois tenta de novo.","Ninguém nasce sabendo anatomia. Uma rodada de cartões e o próximo quiz já vai ser outro.","Não desanima: cada vez que você refaz, fica mais fácil. Eu acredito em você."];
+  const a=pct>=80?hi:pct>=60?mid:lo; return a[Math.floor(Math.random()*a.length)];
+}
 function drawQuiz(){
   const el=$("#tab-quiz");
   if(qi>=qs.length){
     const pct=Math.round(score/qs.length*100);
     el.innerHTML=`<div class="panel"><span class="eyebrow">Resultado</span><div class="score">${score}/${qs.length}</div>
       <p class="sub">${pct>=80?"Bom nível para a prova. Revise os erros abaixo.":pct>=60?"Quase lá. Volte aos cartões dos temas que errou.":"Faça mais uma rodada de cartões antes de repetir o quiz."}</p>
+      <div class="cheer"><span class="cheer-h">${pct>=80?"Arrasou, Neném!":pct>=60?"Tá quase lá, Neném!":"Calma, Neném, você consegue!"}</span><p>${cheer(pct)}</p></div>
       ${wrongs.length?`<h2>Para revisar</h2><ul class="miss">${wrongs.map(w=>`<li><strong>${esc(w.q)}</strong><br>${esc(w.ans)}</li>`).join("")}</ul>`:""}
       <div class="row">${wrongs.length?`<button class="btn" id="qwrong">Refazer só as erradas</button>`:""}<button class="btn primary" id="qagain">Novo quiz</button></div>${sizePicker()}</div>`;
     lastWrongs=wrongs.slice();
