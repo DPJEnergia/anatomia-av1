@@ -83,10 +83,10 @@ td.f{font-family:var(--mono);font-size:13px;white-space:nowrap}
 .wrap>*,.panel,#tab-figuras>div{min-width:0}
 .stagewrap,.figpick{max-width:100%;min-width:0}
 .figtools .btn{white-space:nowrap}
-.figpick{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
-.figpick .chip{white-space:nowrap;flex:none}
-.stagewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
-.stage{position:relative;min-width:620px;container-type:inline-size}
+.figpick{display:flex;flex-wrap:wrap;gap:6px}
+.figpick .chip{flex:none}
+.stagewrap{overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff}
+.stage{position:relative;container-type:inline-size}
 .stage img{display:block;width:100%;height:auto;max-width:none}
 .mk{position:absolute;transform:translate(-50%,-50%) rotate(var(--r,0deg));display:flex;align-items:center;justify-content:center;
   font:700 max(9px,1.25cqw)/1 var(--body);border-radius:4px;cursor:pointer;padding:0;border:1.5px solid #8c2f5c;background:#b23c73;color:#fff;
